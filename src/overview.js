@@ -17,27 +17,27 @@ const Overview = (props) => {
                 let n =0
                 let view =0
                 photos.forEach((v)=>{
-                n+=Number(v.photo.comments._content) 
-                view+=Number(v.photo.views) 
+                n+=Number(v.comments._content) 
+                view+=Number(v.views) 
             })
             console.log(n,view)
             let n10 =0;
             let view10 =0;
             for(let i =0;i<10;i++){
-                n10+=Number(photos[i].photo.comments._content) 
-                view10+=Number(photos[i].photo.views) 
+                n10+=Number(photos[i].comments._content) 
+                view10+=Number(photos[i].views) 
             }
            
             let commentsArr = [{name:"first 10 cummulative comments",y:n10}];
             let viewsArr = [{name:"first 10 cummulative views",y:view10}];
             for(let i=10;i<photos.length;i++){
                 commentsArr.push({
-                    name:photos[i].photo.title._content,
-                    y:Number(photos[i].photo.comments._content)
+                    name:photos[i].title._content,
+                    y:Number(photos[i].comments._content)
                 })
                 viewsArr.push({
-                    name:photos[i].photo.title._content,
-                    y:Number(photos[i].photo.views)
+                    name:photos[i].title._content,
+                    y:Number(photos[i].views)
                 })
             }
            
@@ -119,7 +119,8 @@ const Overview = (props) => {
                 data: commentsArr
             }]  
         }
-    )
+    )  
+   
     },[])
    
 return (
@@ -128,6 +129,7 @@ return (
     <div id="views" ></div>
     <br/>
     <div id="comments"></div>
+    
      </div>
     </div>
 )
